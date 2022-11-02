@@ -346,3 +346,35 @@ so were making it look like if its a input component*/
 .input-group .btn {
   margin: 4px;
 }
+
+/*--------CARDS----------------------*/
+
+/*structure*/
+
+/*this is a div, a block level element, dont apply width because this component should be 
+fluid and flexible so we can put is in any container. The size will be determined by the container*/
+.card {
+  border-radius: 7px;
+  box-shadow: 0 0 20px 10px #f3f3f3; /*0 0 for horizontal and vertical offset, 20px for blurring the shadow making it softer, 10px for spreading the shadow  */
+  overflow: hidden;
+}
+
+/*apply same padding to both elements so they align properly*/
+.card__header,
+.card__body {
+  padding: 2rem 3rem;
+}
+
+/*skin*/
+
+.card--primary .card__header {
+  background: var(
+    --color-primary
+  ); /*since we give the header a color it has grown larger than its parent/container (the card element) --> overflow, this makes the round corners on top disapear. Need to set the overflow property on the parent/container*/
+  color: #fff;
+}
+
+.card--secondary .card__header {
+  background: var(--color-secondary);
+  color: #fff;
+}
