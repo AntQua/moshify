@@ -8,6 +8,18 @@
   --color-body: #918ca4;
 }
 
+/*define a rule using the universal selector*/
+/*
+* -->all elements
+*::after, *::before -->  all elements dinamically inserted
+*/
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box; /*this will provide that block buttons (.btn--block) inside or outside anchor <a> elements will have the same behaviour*/
+}
+
 /*--------TYPOGRAPHY----------------------*/
 
 html {
@@ -183,6 +195,8 @@ a {
 
 /*--------ICONS----------------------*/
 
+/*using https://svgsprit.es/ gets all the svg files in just one*/
+
 /*structure*/
 .icon {
   width: 40px;
@@ -206,4 +220,77 @@ a {
   justify-content: center;
   /* second - aligning along the secondary axis, by default the vertical */
   align-items: center;
+}
+
+/*--------BUTTONS----------------------*/
+
+/* In terms of the size we have 2 types of buttons:
+    - some just strech to fit their content (the search button)
+    - other strech to fill all the available space (block buttons - width of 100%)*/
+
+/*structure*/
+.btn {
+  border-radius: 40px;
+  border: 0;
+  cursor: pointer;
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin: 1rem 0; /*vertical and horizontal. To separate the button from other elements*/
+  padding: 2rem 3rem; /*vertical and horizontal*/
+  text-transform: uppercase;
+  white-space: nowrap; /*In case we have limited space dont want the text in the button to wrap onto a second line */
+  text-align: center; /*To make sure the text is always in the center of the button*/
+}
+
+/*skins*/
+.btn--primary {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+.btn--primary:hover {
+  background: #3a8ffe; /*with SASS use function lighten(primary, 10%) */
+}
+
+.btn--secondary {
+  background: var(--color-secondary);
+  color: #fff;
+}
+
+.btn--secondary:hover {
+  background: #00c8eb;
+}
+
+.btn--accent {
+  background: var(--color-accent);
+  color: #fff;
+}
+
+.btn--accent:hover {
+  background: #ec3000;
+}
+
+.btn--outline {
+  background: #fff;
+  color: var(--color-headings);
+  border: 2px solid var(--color-headings);
+}
+
+.btn--outline:hover {
+  background: var(--color-headings);
+  color: #fff;
+}
+
+/*skin for block buttons*/
+.btn--block {
+  width: 100%;
+  display: inline-block; /*anchor elements are inline by default*/
+}
+
+/*adjust the buttons for desktop version*/
+
+@media screen and (min-width: 1024px) {
+  .btn {
+    font-size: 1.5rem;
+  }
 }
