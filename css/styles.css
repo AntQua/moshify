@@ -144,6 +144,7 @@ a {
 
 .badge--small {
   font-size: 1.6rem;
+  padding: 0.5rem 1.5rem;
 }
 
 /*adjust the badges size for desktop wider screens*/
@@ -365,7 +366,7 @@ fluid and flexible so we can put is in any container. The size will be determine
   padding: 2rem 3rem;
 }
 
-/*skin*/
+/*skins*/
 
 .card--primary .card__header {
   background: var(
@@ -377,4 +378,60 @@ fluid and flexible so we can put is in any container. The size will be determine
 .card--secondary .card__header {
   background: var(--color-secondary);
   color: #fff;
+}
+
+.card--secondary .badge--secondary {
+  background: #02cdf1;
+}
+
+/*--------PLANS----------------------*/
+
+.plan__name {
+  color: #fff;
+  margin: 0;
+  font-weight: 500;
+  font-size: 2.4rem;
+}
+
+.plan__price {
+  font-size: 6rem;
+}
+
+.plan__billing-cycle {
+  font-size: 2.4rem;
+  font-weight: 300;
+  opacity: 0.8;
+  margin-right: 1rem;
+}
+
+.plan__description {
+  font-size: 2rem;
+  font-weight: 300;
+  letter-spacing: 1px;
+  opacity: 0.8;
+  display: block; /*Because the descritpion is a span element, its inline, so with extra space it comer after the badge. So we need to make it a block level element */
+}
+
+.plan .list__item {
+  margin-bottom: 2rem;
+}
+
+/*adjust the Plans for desktop version*/
+
+@media screen and (min-width: 1024px) {
+  .plan__name {
+    font-size: 1.4rem;
+  }
+
+  .plan__price {
+    font-size: 5rem;
+  }
+
+  .plan__billing-cycle {
+    font-size: 1.6rem;
+  }
+
+  .plan__description {
+    font-size: 1.7rem;
+  }
 }
