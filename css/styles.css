@@ -416,6 +416,25 @@ fluid and flexible so we can put is in any container. The size will be determine
   margin-bottom: 2rem;
 }
 
+/* *** make the parent/container (.card__header) a relatively position element */
+.plan--popular .card__header {
+  position: relative;
+}
+
+/*Setting the Popular badge*/
+/*We use the plan--popular class to dinamically insert he popular icon svg image using pseudo element selectors.
+Insert the image before the content of the header element*/
+.plan--popular .card__header::before {
+  content: url(../icons/popular.svg);
+  width: 40px;
+  display: inline-block; /*because its a div which is a inline element need to change to inline block so the width works*/
+  /*move the icon using absolute positioning
+  We should make the parent or the container (.card__header) a relatively position element ...so we need to define another rule*** */
+  position: absolute;
+  top: -6px;
+  right: 5%;
+}
+
 /*adjust the Plans for desktop version*/
 
 @media screen and (min-width: 1024px) {
