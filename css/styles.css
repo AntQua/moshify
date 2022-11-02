@@ -90,10 +90,56 @@ a {
   margin-left: 10px;
 }
 
-/*adjust the link size for desktop*/
+/*adjust the link size for desktop wider screens*/
 
 @media screen and (min-width: 1024px) {
   .link-arrow {
     font-size: 1.5rem;
+  }
+}
+
+/*--------BADGES----------------------*/
+
+/*Applying object oriented CSS principles!
+    Separate stucture from skin:
+       define classes: 
+            - one for basic structure - padding and font size 
+            - other classes for different skins like colors and sizes */
+
+/*defining the stucture*/
+.badge {
+  border-radius: 20px;
+  font-size: 2rem;
+  font-weight: 600;
+  padding: 0.5rem 2rem; /*vertical and horizontal*/
+  white-space: nowrap; /*prevents the badge from wrapping into a second line.*/
+}
+
+/*defining the skin
+    using the BAM (block element modifier) naming convention
+      - we use -- to separate a block or a component from a modifier */
+.badge--primary {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+.badge--secondary {
+  background: var(--color-secondary);
+  color: #fff;
+}
+
+.badge--small {
+  font-size: 1.6rem;
+}
+
+/*adjust the badges size for desktop wider screens*/
+
+@media screen and (min-width: 1024px) {
+  .badge {
+    font-size: 1.5rem;
+  }
+
+  .badge--small {
+    font-size: 1.2rem;
   }
 }
