@@ -143,3 +143,40 @@ a {
     font-size: 1.2rem;
   }
 }
+
+/*--------LISTS----------------------*/
+
+/* we have 2 types of lists (in common they dont have the default bullet points:
+      - horizontal or inline lists (with the badges or the nav bar)
+      - vertical lists (with green ticks or the ones in the footer)  */
+
+/*this list class can represent either vertical or horizontal lists*/
+.list {
+  list-style: none; /*gets rid of the default bullet point*/
+  padding-left: 0; /*gets rid of the default padding*/
+  color: var(--color-headings);
+}
+
+/*create an inline list (variation of the .list) applying Object oriented CSS principles (separate structure from skin*/
+.list--inline .list__item {
+  display: inline-block; /*inline-block will allow to apply margins */
+  margin-right: 2rem;
+}
+
+.list--tick {
+  list-style-image: url(../icons/tick.svg);
+  padding-left: 3rem;
+}
+
+.list--tick .list__item {
+  padding-left: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+/*adjust the lists for desktop wider screens*/
+
+@media screen and (min-width: 1024px) {
+  .list--tick .list__item {
+    padding-left: 0rem;
+  }
+}
