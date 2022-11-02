@@ -157,7 +157,7 @@ a {
   color: var(--color-headings);
 }
 
-/*create an inline list (variation of the .list) applying Object oriented CSS principles (separate structure from skin*/
+/*create an inline list (variation/modifier of the .list) applying Object oriented CSS principles (separate structure from skin*/
 .list--inline .list__item {
   display: inline-block; /*inline-block will allow to apply margins */
   margin-right: 2rem;
@@ -179,4 +179,31 @@ a {
   .list--tick .list__item {
     padding-left: 0rem;
   }
+}
+
+/*--------ICONS----------------------*/
+
+/*structure*/
+.icon {
+  width: 40px;
+  height: 40px;
+}
+
+/*skin*/
+/* -- indicates that is not a new class but a variation or a modifier for the icon class*/
+.icon--primary {
+  fill: var(--color-primary);
+}
+
+.icon-container {
+  background: #f3f9fa;
+  width: 64px;
+  height: 64px;
+  border-radius: 100%; /*round shape*/
+  display: inline-flex; /*since the the span element is an inline element*/
+  /*center the icon in the round circle, 2 properties: */
+  /* first- aligning along the primary axis, by default the horizontal */
+  justify-content: center;
+  /* second - aligning along the secondary axis, by default the vertical */
+  align-items: center;
 }
