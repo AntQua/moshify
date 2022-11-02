@@ -294,3 +294,27 @@ a {
     font-size: 1.5rem;
   }
 }
+
+/*--------INPUTS----------------------*/
+
+.input {
+  border-radius: 30px;
+  border: 1px solid #ccc;
+  color: var(--color-headings);
+  font-size: 2rem;
+  outline: 0;
+  padding: 1.5rem 3.5rem;
+}
+
+/*change the placeholder - use a pseudo element selector*/
+::placeholder {
+  color: #cdcbd7;
+}
+
+/*adjust the inputs for desktop version*/
+
+@media screen and (min-width: 1024px) {
+  .input {
+    font-size: 1.5rem;
+  }
+}
