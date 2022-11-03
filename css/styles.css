@@ -454,3 +454,21 @@ Insert the image before the content of the header element*/
     font-size: 1.7rem;
   }
 }
+
+/*--------MEDIA OBJECTS/COMPONENTS----------------------*/
+
+.media {
+  display: flex;
+}
+
+.media__title {
+  margin-top: 0;
+}
+
+.media__body {
+  margin: 0 2rem; /*vertical = 0; horizontal = 2rem*/
+}
+
+.media__image {
+  margin-top: 1rem;
+}
