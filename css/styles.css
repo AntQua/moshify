@@ -644,3 +644,38 @@ Insert the image before the content of the header element*/
     margin: 0 2rem;
   }
 }
+
+/*--------COLLAPSIBLES----------------------*/
+
+.collapsible__header {
+  display: flex; /*allows for we can move the icon vertically and horizontaly*/
+  justify-content: space-between; /*push the icon to the right edge of the container and add space between them*/
+}
+
+.collapsible__heading {
+  margin-top: 0;
+  font-size: 3rem;
+}
+
+.collapsible__chevron {
+  transform: rotate(-90deg); /*rotates the icon*/
+  transition: transform 0.3s;
+}
+
+.collapsible__content {
+  /*display: none; hides the content area*/
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: all 0.3s;
+}
+
+.collapsible--expanded .collapsible__chevron {
+  transform: rotate(0); /*0 is the inictial position of the icon*/
+}
+
+.collapsible--expanded .collapsible__content {
+  /*display: block; shows the content area*/
+  max-height: 100vh;
+  opacity: 1;
+}
