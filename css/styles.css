@@ -207,10 +207,19 @@ a {
   height: 40px;
 }
 
+.icon--small {
+  width: 30px;
+  height: 30px;
+}
+
 /*skin*/
 /* -- indicates that is not a new class but a variation or a modifier for the icon class*/
 .icon--primary {
   fill: var(--color-primary);
+}
+
+.icon--white {
+  fill: #fff;
 }
 
 .icon-container {
@@ -224,6 +233,10 @@ a {
   justify-content: center;
   /* second - aligning along the secondary axis, by default the vertical */
   align-items: center;
+}
+
+.icon-container--accent {
+  background: var(--color-accent);
 }
 
 /*--------BUTTONS----------------------*/
@@ -546,5 +559,38 @@ Insert the image before the content of the header element*/
 @media screen and (min-width: 1024px) {
   .grid--1x3 {
     grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/*--------TESTIMONIALS----------------------*/
+
+.testimonial {
+  padding: 3rem;
+}
+
+.testimonial__image {
+  position: relative;
+}
+
+.testimonial__image > img {
+  width: 100%; /*making the image responsive and resizes along with the width of the column*/
+}
+
+.testimonial__image > .icon-container {
+  position: absolute;
+  top: 3rem;
+  right: -32px; /*.icon-container(width: 64px, height:64px, if we want the icon in the center just divide this by 2*/
+}
+
+/*adjust the testimonial for tablets version*/
+
+@media screen and (min-width: 768px) {
+  .testimonial .quote,
+  .testimonial .quote__author {
+    font-size: 2.4rem;
+  }
+
+  .testimonial .quote {
+    margin-left: 6rem;
   }
 }
