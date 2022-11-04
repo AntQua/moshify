@@ -729,3 +729,79 @@ copy the code on the bottom*/
   clip-path: polygon(0% 0%, 100% 0%, 100% 80%, 0% 100%);
   padding-bottom: calc(var(--padding-vertical) + 4rem);
 }
+
+/*--------NAVIGATION BARS----------------------*/
+
+.nav {
+  background: #000;
+  display: flex; /*places the items horizontaly by default*/
+  justify-content: space-between; /*items are pushed to the side and the remaining space is distributed between other items 
+   (on mobile we want that the logo and the menu icon to be pushed to the edges of the container*/
+  flex-wrap: wrap;
+  padding: 0 1rem;
+  align-items: center;
+}
+
+/* push the list to the second line bellow the menu icon */
+.nav__list {
+  width: 100%; /*flex-wrap: wrap; needs to be set on .nav to enable width:100%*/
+  margin: 0;
+}
+
+.nav__item {
+  padding: 0.5rem 2rem;
+  border-bottom: 1px solid #222;
+}
+
+/*since links have their own colors we need to write a new rule using a direct child selector
+to target the anchor inside the element*/
+.nav__item > a {
+  color: #d2d0db;
+  transition: color 0.3s;
+}
+
+.nav__item > a:hover {
+  color: #fff;
+}
+
+.nav__toggler {
+  opacity: 0.5;
+  transition: box-shadow 0.15s;
+  cursor: pointer; /*so the toggler looks clickable*/
+}
+
+/*to make sure that this style (.collapsible--expanded) is only applied to a navigation bar
+that is expanded we need to use a double class selector (select an element that has both the .nav class as
+well as .collapsible--expanded .  */
+.nav.collapsible--expanded .nav__toggler {
+  opacity: 1;
+  box-shadow: 0 0 0 3px #666;
+  border-radius: 5px;
+}
+
+/*to push the logo a bit down on the nav bar and gain more margin top... its a hack :P*/
+.nav__brand {
+  transform: translateY(5px);
+}
+
+/*adjust the navigation bar for the tablets and desktop version*/
+
+@media screen and (min-width: 768px) {
+  .nav__toggler {
+    display: none; /*hide the toggler*/
+  }
+
+  .nav__list {
+    width: auto;
+    display: flex; /*to lay the nav bar items horizontally*/
+    font-size: 1.6rem;
+    /*since the list appears hidden when its not expanded, with this p+roperties we can show the
+    navigation list*/
+    max-height: 100%;
+    opacity: 1;
+  }
+
+  .nav__item {
+    border: 0;
+  }
+}

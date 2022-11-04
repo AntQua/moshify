@@ -1,0 +1,22 @@
+<!-- 3 elements in the navigation bar:
+      - logo
+      - the toggler button - which is invisible on desktop version
+      - an unordered list
+    They will be presented verticaly in the mobile version and horizontly in the desktop version (using flex)
+    The navigation bar has the same behaviour as a collapsible (we use the same JS code).
+       -->
+<nav class="nav collapsible">
+  <a class="nav__brand" href="/"><img src="icons/logo.svg" alt="" /></a>
+  <!-- href="/"> represents the root of the website, when we click the logo it redirects to the site homepage-->
+  <svg class="icon icon--white nav__toggler">
+    <use xlink:href="icons/sprite.svg#menu"></use>
+  </svg>
+  <!-- on mobile version, this list should be initially hidden and appear only when the user clicks on the toggler button
+        This is the collapsible content that can be expanded or collapsed-->
+  <ul class="list nav__list collapsible__content">
+    <li class="nav__item"><a href="#">Hosting</a></li>
+    <li class="nav__item"><a href="#">VPS</a></li>
+    <li class="nav__item"><a href="#">Domain</a></li>
+    <li class="nav__item"><a href="#">Pricing</a></li>
+  </ul>
+</nav>
