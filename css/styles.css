@@ -260,10 +260,19 @@ a {
   font-size: 1.8rem;
   font-weight: 600;
   margin: 1rem 0; /*vertical and horizontal. To separate the button from other elements*/
+  outline: 0;
   padding: 2rem 3rem; /*vertical and horizontal*/
   text-transform: uppercase;
   white-space: nowrap; /*In case we have limited space dont want the text in the button to wrap onto a second line */
   text-align: center; /*To make sure the text is always in the center of the button*/
+}
+
+/*define the size of an icon inside a button*/
+.btn .icon {
+  width: 2rem;
+  height: 2rem;
+  margin-right: rem;
+  vertical-align: middle;
 }
 
 /*skins*/
@@ -366,7 +375,7 @@ so were making it look like if its a input component*/
 .input-group .input {
   border: 0;
   flex-grow: 1; /*the input field will grouw to take all the available space inside the div*/
-  padding: 1.5rem 1rem;
+  padding: 1.5rem 2rem;
 }
 
 /*define the margin of the button inside the .input-group*/
@@ -837,5 +846,38 @@ well as .collapsible--expanded .  */
     /*content area should be vertically in the middle so it will be centered with the image*/
     /*content area is inside a grid so change the vertical allignment of this item*/
     align-self: center;
+  }
+}
+
+/*--------31 - DOMAIN BLOCK----------------------*/
+
+/*style (with shadow and remove the border) the input group inside this domain block component */
+.block-domain .input-group {
+  box-shadow: 0 0 30px 20px #e6ebee;
+  border: 0;
+  margin: 4rem auto; /*vertical and horizontal*/
+  max-width: 670px;
+}
+
+.block-domain__prices {
+  display: grid;
+  /*on mobile the grid will have 3 columns and 2 rows*/
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 6rem); /*6rem sets the hight of each row*/
+  font-size: 2rem;
+  font-weight: 600;
+  justify-items: center;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/*adjust the domain block for the tablets and desktop version*/
+
+@media screen and (min-width: 768px) {
+  .block-domain__prices {
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(10rem, 1fr)
+    ); /*repeat(6, 1fr); instead of hard coding 6, if latter we change an item we need to change 6 to, so set it to auto-fit*/
   }
 }
