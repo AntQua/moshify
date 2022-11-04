@@ -415,11 +415,19 @@ fluid and flexible so we can put is in any container. The size will be determine
   color: #fff;
 }
 
+.card--primary .badge--primary {
+  background: #126de4;
+}
+
 .card--secondary .badge--secondary {
   background: #02cdf1;
 }
 
 /*--------19 - PLANS / 20 - POPULAR BADGE----------------------*/
+
+.plan {
+  transition: transform 0.2s ease-out;
+}
 
 .plan__name {
   color: #fff;
@@ -451,6 +459,11 @@ fluid and flexible so we can put is in any container. The size will be determine
   margin-bottom: 2rem;
 }
 
+/*The popular plan should be slightly larger than other plans*/
+.plan--popular {
+  transform: scale(1.1); /*10% larger*/
+}
+
 /* *** make the parent/container (.card__header) a relatively position element */
 .plan--popular .card__header {
   position: relative;
@@ -468,6 +481,14 @@ Insert the image before the content of the header element*/
   position: absolute;
   top: -6px;
   right: 5%;
+}
+
+.plan:hover {
+  transform: scale(1.05); /*5% larger*/
+}
+
+.plan--popular:hover {
+  transform: scale(1.15); /*5% larger*/
 }
 
 /*adjust the Plans for desktop version*/
@@ -880,4 +901,17 @@ well as .collapsible--expanded .  */
       minmax(10rem, 1fr)
     ); /*repeat(6, 1fr); instead of hard coding 6, if latter we change an item we need to change 6 to, so set it to auto-fit*/
   }
+}
+
+/*--------32 - PLANS BLOCK----------------------*/
+
+/*in the block called plans our grid should have a gap of 4rem*/
+.block-plans .grid {
+  gap: 8rem 4rem; /*rows / columns*/
+}
+
+/*with this we dont have to write a media query to define the width of the cards for tablets*/
+.block-plans .card {
+  max-width: 500px;
+  margin: 0 auto;
 }
