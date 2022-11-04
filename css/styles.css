@@ -1,4 +1,4 @@
-/*Define our color palette using variables so we can reuse them in multiple places */
+/*9 - Define our color palette using variables so we can reuse them in multiple places */
 :root {
   --border-radius: 30px;
   --color-primary: #2584ff;
@@ -29,7 +29,7 @@
   /*if we have extra space, the space will be equally distributed to the sides of the block*/
 }
 
-/*--------TYPOGRAPHY----------------------*/
+/*--------10 - TYPOGRAPHY----------------------*/
 
 html {
   /*font-size: 16x; -> 16px is the default size*/
@@ -49,6 +49,7 @@ h2,
 h3 {
   color: var(--color-headings);
   margin-bottom: 1rem;
+  line-height: 1.1;
 }
 
 /*1 rem = 1 x font size of the html element*/
@@ -87,7 +88,7 @@ p {
   }
 }
 
-/*--------LINKS----------------------*/
+/*--------11 - LINKS----------------------*/
 
 a {
   text-decoration: none;
@@ -119,7 +120,7 @@ a {
   }
 }
 
-/*--------BADGES----------------------*/
+/*--------12 - BADGES----------------------*/
 
 /*Applying object oriented CSS principles!
     Separate stucture from skin:
@@ -166,7 +167,7 @@ a {
   }
 }
 
-/*--------LISTS----------------------*/
+/*--------13 - LISTS----------------------*/
 
 /* we have 2 types of lists (in common they dont have the default bullet points:
       - horizontal or inline lists (with the badges or the nav bar)
@@ -203,7 +204,7 @@ a {
   }
 }
 
-/*--------ICONS----------------------*/
+/*--------14 - ICONS----------------------*/
 
 /*using https://svgsprit.es/ gets all the svg files in just one*/
 
@@ -245,7 +246,7 @@ a {
   background: var(--color-accent);
 }
 
-/*--------BUTTONS----------------------*/
+/*--------15 - BUTTONS----------------------*/
 
 /* In terms of the size we have 2 types of buttons:
     - some just strech to fit their content (the search button)
@@ -323,7 +324,7 @@ a {
   }
 }
 
-/*--------INPUTS----------------------*/
+/*--------16 - INPUTS----------------------*/
 
 .input {
   border-radius: var(--border-radius);
@@ -347,7 +348,7 @@ a {
   }
 }
 
-/*--------INPUT GROUPS----------------------*/
+/*--------17 - INPUT GROUPS----------------------*/
 
 /*we are grouping the input element with a button. We can group with an icon or any other elements*/
 
@@ -373,7 +374,7 @@ so were making it look like if its a input component*/
   margin: 4px;
 }
 
-/*--------CARDS----------------------*/
+/*--------18 - CARDS----------------------*/
 
 /*structure*/
 
@@ -409,7 +410,7 @@ fluid and flexible so we can put is in any container. The size will be determine
   background: #02cdf1;
 }
 
-/*--------PLANS----------------------*/
+/*--------19 - PLANS / 20 - POPULAR BADGE----------------------*/
 
 .plan__name {
   color: #fff;
@@ -480,7 +481,7 @@ Insert the image before the content of the header element*/
   }
 }
 
-/*--------MEDIA OBJECTS/COMPONENTS----------------------*/
+/*--------21 - MEDIA OBJECTS/COMPONENTS----------------------*/
 
 .media {
   display: flex;
@@ -498,7 +499,7 @@ Insert the image before the content of the header element*/
   margin-top: 1rem;
 }
 
-/*--------QUOTES----------------------*/
+/*--------22 - QUOTES----------------------*/
 
 .quote {
   font-size: 3rem;
@@ -551,7 +552,7 @@ Insert the image before the content of the header element*/
   }
 }
 
-/*--------GRIDS----------------------*/
+/*--------23 - GRIDS----------------------*/
 
 .grid {
   display: grid;
@@ -573,7 +574,7 @@ Insert the image before the content of the header element*/
   }
 }
 
-/*--------TESTIMONIALS----------------------*/
+/*--------24 - TESTIMONIALS----------------------*/
 
 .testimonial {
   padding: 3rem;
@@ -606,7 +607,7 @@ Insert the image before the content of the header element*/
   }
 }
 
-/*--------CALLOUTS----------------------*/
+/*--------25 - CALLOUTS----------------------*/
 
 /*Structure*/
 .callout {
@@ -651,7 +652,7 @@ Insert the image before the content of the header element*/
   }
 }
 
-/*--------COLLAPSIBLES----------------------*/
+/*--------26 - COLLAPSIBLES----------------------*/
 
 .collapsible__header {
   display: flex; /*allows for we can move the icon vertically and horizontaly*/
@@ -686,7 +687,7 @@ Insert the image before the content of the header element*/
   opacity: 1;
 }
 
-/*--------BLOCKS----------------------*/
+/*--------27 - BLOCKS----------------------*/
 
 .block {
   /*define a variable or a custom property*/
@@ -730,7 +731,7 @@ copy the code on the bottom*/
   padding-bottom: calc(var(--padding-vertical) + 4rem);
 }
 
-/*--------NAVIGATION BARS----------------------*/
+/*--------28 - NAVIGATION BARS----------------------*/
 
 .nav {
   background: #000;
@@ -803,5 +804,38 @@ well as .collapsible--expanded .  */
 
   .nav__item {
     border: 0;
+  }
+}
+
+/*--------29 - HERO----------------------*/
+
+.hero {
+  /*overrite the rule for .block--skewed-left. In this particular block we want a small difference in the skewed of the polygon from 80% to 90%*/
+  clip-path: polygon(0% 0%, 100% 0%, 100% 90%, 0% 100%);
+}
+
+.hero__tagline {
+  font-size: 2rem;
+  color: #b9c3cf;
+  letter-spacing: 1px;
+  margin: 2rem 0 5rem;
+}
+
+/*we need a responsive image that streches to fit its container: set width 100%*/
+.hero__image {
+  width: 100%;
+}
+
+/*adjust the hero for the tablets and desktop version*/
+
+@media screen and (min-width: 768px) {
+  .hero {
+    padding-top: 0;
+  }
+  .hero__content {
+    text-align: left;
+    /*content area should be vertically in the middle so it will be centered with the image*/
+    /*content area is inside a grid so change the vertical allignment of this item*/
+    align-self: center;
   }
 }

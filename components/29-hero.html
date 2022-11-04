@@ -1,0 +1,23 @@
+<!-- The hero component is also called a banner.
+       Has the following components:
+        - a dark block skewed to the left
+        - in the block we have a two column grid (on mobile we have one column grid):
+           * first column we have some content
+           ** second column we have an image
+  -->
+<!-- section.block.block--dark.block--skewed-left -->
+<section class="block block--dark block--skewed-left hero">
+  <!-- inside this section we will have a grid -->
+  <!-- .grid.grid--1x2 -->
+  <div class="container grid grid--1x2">
+    <!-- * the column with the content -->
+    <header class="block__header hero__content">
+      <h1 class="block__heading">Cloud Hosting for Pros</h1>
+      <p class="hero__tagline">Deploy your websites in less than 60 seconds.</p>
+      <!-- an anchor with a button -->
+      <!-- a.btn.btn--accent.btn--stretched -->
+      <a href="#" class="btn btn--accent btn--stretched">Get Started</a>
+    </header>
+    <img class="hero__image" src="images/banner.png" alt="" />
+  </div>
+</section>
