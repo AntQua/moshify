@@ -1,0 +1,77 @@
+<!-- Optimizing Images
+
+- On photoshop we check the width of the banner image and is 1532px
+
+- Maximum size of the container is 1140px so pictures bigger than this is just extra space used.
+
+- Most images, like the banner image in the hero component, take only 50% of the space of the container (1140px)
+    - on desktop the image is not going to strech more than 570px.
+    - on mobile the picture is going to strech and take the entire width of the page but the resolution
+      on mobile devices is under 500px  
+    - Conclusion: the image is never going to be wider than 570px
+
+- STRATEGY:
+        - serve a 570px-wide image - assuming that our image is never going to be wider than 570px, we can serve the image in this size.
+                                    
+        - let the browsers do small resizing (570 -> 500 px) - If there are small variations we let the browser take care of the resizing of the image.   
+
+Pixel desnity of the screen
+Modern screens have higher pixel density (1.5, 2, 3) - this are retina displays screens
+To make our image look really sharp on these screens we have to:
+
+        - provide a 2x version for high-density screens
+
+- resize the image on photoshop to 1140px (its 1532px) and save it on a new file banner@2x.png (we will serve this file for retina display screens)
+
+- resize the image on photoshop to 570px and save it on a new file banner.png
+
+- both this 2 resizings saved alot in our png image size, but we can make this images smaller by using a modern format like WEPB:
+        - go to cloudconvert.com
+        - select both png files (banner@2x.png and banner.png)
+        - convert png to webp
+        - save the files and add them to our project
+
+- change the markup of the hero component in 29-hero.html
+ 
+-->
+<!-- BEFORE -->
+<!-- section.block.block--dark.block--skewed-left -->
+<section class="block block--dark block--skewed-left hero">
+  <!-- inside this section we will have a grid -->
+  <!-- .grid.grid--1x2 -->
+  <div class="container grid grid--1x2">
+    <!-- * the column with the content -->
+    <header class="block__header hero__content">
+      <h1 class="block__heading">Cloud Hosting for Pros</h1>
+      <p class="hero__tagline">Deploy your websites in less than 60 seconds.</p>
+      <!-- an anchor with a button -->
+      <!-- a.btn.btn--accent.btn--stretched -->
+      <a href="#" class="btn btn--accent btn--stretched">Get Started</a>
+    </header>
+    <img class="hero__image" src="images/banner.png" alt="" />
+  </div>
+</section>
+
+<!-- AFTER -->
+<section class="block block--dark block--skewed-left hero">
+  <div class="container grid grid--1x2">
+    <header class="block__header hero__content">
+      <h1 class="block__heading">Cloud Hosting for Pros</h1>
+      <p class="hero__tagline">Deploy your websites in less than 60 seconds.</p>
+      <a href="#" class="btn btn--accent btn--stretched">Get Started</a>
+    </header>
+    <!-- wrap the img inside a picture element -->
+    <!-- a picture can have multiple sourses -->
+    <picture>
+      <source
+        type="image/webp"
+        srcset="images/banner.webp 1x, images/banner@2x.webp 2x"
+      />
+      <source
+        type="image/png"
+        srcset="images/banner.png 1x, images/banner@2x.png 2x"
+      />
+      <img class="hero__image" src="images/banner.png" alt="" />
+    </picture>
+  </div>
+</section>
