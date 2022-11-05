@@ -1,0 +1,45 @@
+<section class="block">
+  <header class="block__header">
+    <h2>What our Customers are Saying</h2>
+    <p>
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Natus, saepe?
+    </p>
+  </header>
+  <div class="container">
+    <div class="card testimonial">
+      <div class="grid grid--1x2">
+        <!-- put the image and the icon inside the same container and use absolute positioning to assure the icon always stays in the same place in the image -->
+        <div class="testimonial__image">
+          <img src="images/testimonial.jpg" alt="A happy, smiling customer" />
+          <span class="icon-container icon-container--accent">
+            <svg class="icon icon--white icon--small">
+              <use xlink:href="icons/sprite.svg#quotes"></use>
+            </svg>
+          </span>
+        </div>
+        <!-- Insert the quote component template here -->
+        <blockquote class="quote">
+          <p class="quote__text">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ea,
+            incidunt praesentium nihil alias nisi ipsum facilis asperiores fugit
+            dolores iure?
+          </p>
+          <footer>
+            <!-- use the media object/component template  -->
+            <div class="media">
+              <div class="media__image">
+                <svg class="icon icon--primary quote__line">
+                  <use xlink:href="icons/sprite.svg#line"></use>
+                </svg>
+              </div>
+              <div class="media__body">
+                <h3 class="media__title quote__author">John Smith</h3>
+                <p class="quote__company">ABC Company</p>
+              </div>
+            </div>
+          </footer>
+        </blockquote>
+      </div>
+    </div>
+  </div>
+</section>

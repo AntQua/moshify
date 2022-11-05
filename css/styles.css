@@ -735,6 +735,7 @@ Insert the image before the content of the header element*/
 
 .block__header {
   text-align: center;
+  margin-bottom: 4rem;
 }
 
 .block__heading {
