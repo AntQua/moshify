@@ -915,3 +915,36 @@ well as .collapsible--expanded .  */
   max-width: 500px;
   margin: 0 auto;
 }
+
+/*--------33 - FEATURES BLOCK----------------------*/
+
+.feature {
+  gap: 4rem 2rem; /*rows / columns*/
+  margin: 12rem 0;
+}
+
+/*Reduce the space between the heading and the article feature
+Use pseudo class selectors to target the first feature */
+.feature:first-of-type {
+  margin-top: 6rem; /*overwrite the top margin. 50% of the margin assign in .feature 12rem*/
+}
+
+.feature__heading {
+  margin: 1rem 0; /* vertical / horizontal*/
+}
+
+.feature__image {
+  width: 100%;
+}
+
+/*adjust the features block for the tablets and desktop version*/
+
+@media screen and (min-width: 768px) {
+  /*using pseudo class selectors we are going to target every second feature (4 features - select the even features
+so we can swap the order from right to left on desktop viewing. We are selecting the 2nd and the 4th features*/
+
+  .feature:nth-of-type(even) .feature__content {
+    order: 2; /*by default the order is 1. In our markup we added the content first then the image.
+              Changing the order to two the image will take the position of the first item in the grid. */
+  }
+}
