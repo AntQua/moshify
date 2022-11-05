@@ -31,6 +31,12 @@
 
 /*--------10 - TYPOGRAPHY----------------------*/
 
+/*to specify the color of the selected text*/
+::selection {
+  background: var(--color-primary);
+  color: #fff;
+}
+
 html {
   /*font-size: 16x; -> 16px is the default size*/
   /* 62.5% of 16px = 10px*/
@@ -64,6 +70,7 @@ h2 {
 
 h3 {
   font-size: 3rem;
+  font-weight: 500;
 }
 
 p {
@@ -177,7 +184,6 @@ a {
 .list {
   list-style: none; /*gets rid of the default bullet point*/
   padding-left: 0; /*gets rid of the default padding*/
-  color: var(--color-headings);
 }
 
 /*create an inline list (variation/modifier of the .list) applying Object oriented CSS principles (separate structure from skin*/
@@ -189,6 +195,7 @@ a {
 .list--tick {
   list-style-image: url(../icons/tick.svg);
   padding-left: 3rem;
+  color: var(--color-headings);
 }
 
 .list--tick .list__item {
@@ -515,6 +522,7 @@ Insert the image before the content of the header element*/
 
 .media {
   display: flex;
+  margin-bottom: 4rem;
 }
 
 .media__title {
@@ -738,7 +746,9 @@ Insert the image before the content of the header element*/
   color: #7b858b;
 }
 
-.block--dark .block__heading {
+.block--dark h1,
+.block--dark h2,
+.block--dark h3 {
   color: #fff;
 }
 
@@ -752,12 +762,12 @@ copy the code on the bottom*/
   /*top right corner of the block*/
   /*bottom right corner of the block*/
   /*bottom left corner of the block*/
-  clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 80%);
+  clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 90%);
   padding-bottom: calc(var(--padding-vertical) + 4rem);
 }
 
 .block--skewed-left {
-  clip-path: polygon(0% 0%, 100% 0%, 100% 80%, 0% 100%);
+  clip-path: polygon(0% 0%, 100% 0%, 100% 90%, 0% 100%);
   padding-bottom: calc(var(--padding-vertical) + 4rem);
 }
 
@@ -839,10 +849,11 @@ well as .collapsible--expanded .  */
 
 /*--------29 - HERO----------------------*/
 
+/*
 .hero {
-  /*overrite the rule for .block--skewed-left. In this particular block we want a small difference in the skewed of the polygon from 80% to 90%*/
+  overrite the rule for .block--skewed-left. In this particular block we want a small difference in the skewed of the polygon from 80% to 90%
   clip-path: polygon(0% 0%, 100% 0%, 100% 90%, 0% 100%);
-}
+}*/
 
 .hero__tagline {
   font-size: 2rem;
@@ -946,5 +957,32 @@ so we can swap the order from right to left on desktop viewing. We are selecting
   .feature:nth-of-type(even) .feature__content {
     order: 2; /*by default the order is 1. In our markup we added the content first then the image.
               Changing the order to two the image will take the position of the first item in the grid. */
+  }
+}
+
+/*--------34 - SHOWCASE BLOCK----------------------*/
+
+/*make the image responsible on mobile version*/
+.block-showcase__picture > img {
+  width: 100%;
+}
+
+/*adjust the showcase block for the tablets and desktop version*/
+
+@media screen and (min-width: 768px) {
+  /*we want to make sure we have 2 columns and each column is taking exaclty 50% of its parent.
+  So on the tablet/desktop screen we need to redefine the column template for our grid*/
+
+  .block-showcase .grid {
+    grid-template-columns: 50% 50%; /*previously we had 1fr 1fr*. Now its 50% of the width of the container. The width of the column will not be determined by its content, like the image.*/
+  }
+
+  .block-showcase__picture {
+    justify-self: end;
+  }
+
+  .block-showcase__picture > img {
+    width: auto; /*the image will be displayed in its actual size*/
+    max-width: 700px;
   }
 }

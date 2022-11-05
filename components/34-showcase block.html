@@ -1,0 +1,90 @@
+<!-- On mobile version we have a one column grid with an image and 3 media objects.
+            - the image should be responsive and strech to take up the available space.
+
+         On the desktop version:
+            - the image is not going to grow beyond a certain size. If the screen is big/wide we are having some padding arround the whole block 
+            - in this case we dont want a responsive image
+        
+      The size of the iPad image is 674px, that is the widest it can get.
+      The resolution of most mobile devices is under 500px so were going to assume the base of 674px or 700px
+      then were going to supply the 2x version for retine desplays.
+
+      In photoshop resize the ipad.png image to 700px and save it as ipag.png, this is the standard version. Then resize it to 1400px and name it ipad@2x.png.
+      Then convert both files to webp.
+      -->
+
+<!-- section.block.block--dark.block--skewed-right -->
+<section class="block block--dark block--skewed-right block-showcase">
+  <header class="block__header">
+    <h2>User-Friendly Control Panel</h2>
+  </header>
+  <!-- .container.grid.drid--1x2 -->
+  <div class="container grid grid--1x2">
+    <picture class="block-showcase__picture">
+      <source
+        type="image/webp"
+        srcset="images/ipad.webp 1x, images/ipad@2x.webp 2x"
+      />
+      <source
+        type="image/png"
+        srcset="images/ipad.png 1x, images/ipad@2x.png 2x"
+      />
+      <img src="images/ipad.png" alt="" />
+    </picture>
+
+    <!-- ul>li*3 -->
+    <ul class="list">
+      <li>
+        <div class="media">
+          <div class="media__image">
+            <svg class="icon icon--primary">
+              <use xlink:href="icons/sprite.svg#snap"></use>
+            </svg>
+          </div>
+          <div class="media__body">
+            <h3 class="media__title">Easy Start & Managed Updates</h3>
+            <p>
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illo
+              voluptate dolores consectetur quam esse, magni velit id quisquam
+              blanditiis ratione.
+            </p>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="media">
+          <div class="media__image">
+            <svg class="icon icon--primary">
+              <use xlink:href="icons/sprite.svg#growth"></use>
+            </svg>
+          </div>
+          <div class="media__body">
+            <h3 class="media__title">Staging, Git & WP-CLI</h3>
+            <p>
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illo
+              voluptate dolores consectetur quam esse, magni velit id quisquam
+              blanditiis ratione.
+            </p>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="media">
+          <div class="media__image">
+            <svg class="icon icon--primary">
+              <use xlink:href="icons/sprite.svg#wordpress"></use>
+            </svg>
+          </div>
+          <div class="media__body">
+            <h3 class="media__title">Dynamic Caching & More</h3>
+            <p>
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illo
+              voluptate dolores consectetur quam esse, magni velit id quisquam
+              blanditiis ratione.
+            </p>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
