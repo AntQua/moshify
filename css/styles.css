@@ -268,7 +268,7 @@ a {
   font-weight: 600;
   margin: 1rem 0; /*vertical and horizontal. To separate the button from other elements*/
   outline: 0;
-  padding: 2rem 3rem; /*vertical and horizontal*/
+  padding: 2rem 4vw; /*vertical and horizontal*/
   text-transform: uppercase;
   white-space: nowrap; /*In case we have limited space dont want the text in the button to wrap onto a second line */
   text-align: center; /*To make sure the text is always in the center of the button*/
@@ -340,6 +340,12 @@ a {
   }
 }
 
+@media screen and (min-width: 1440px) {
+  .btn {
+    padding: 2rem 2vw; /*vertical and horizontal*/
+  }
+}
+
 /*--------16 - INPUTS----------------------*/
 
 .input {
@@ -383,6 +389,7 @@ so were making it look like if its a input component*/
   border: 0;
   flex-grow: 1; /*the input field will grouw to take all the available space inside the div*/
   padding: 1.5rem 2rem;
+  width: 0;
 }
 
 /*define the margin of the button inside the .input-group*/
@@ -893,9 +900,10 @@ well as .collapsible--expanded .  */
 }
 
 .block-domain__prices {
+  color: var(--color-headings);
   display: grid;
-  /*on mobile the grid will have 3 columns and 2 rows*/
-  grid-template-columns: repeat(3, 1fr);
+  /*on mobile the grid will have 3 columns and 2 rows --> was changed to 2 columns after troubleshooting layout assessement*/
+  grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(2, 6rem); /*6rem sets the hight of each row*/
   font-size: 2rem;
   font-weight: 600;

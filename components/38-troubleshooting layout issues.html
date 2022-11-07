@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/normalize.css" />
+    <link rel="stylesheet" href="../css/styles.css" />
+  </head>
+  <body>
+    <!-- copy all the stylesheets from index.html -->
+    <!-- Study the troubling component in isollation, the domain block component -->
+    <!-- on this block the button is falling outside of his container in the mobile version on smaller screens -->
+    <!-- Open chrome dev tools and delete the elements one by one and check if the problem remains :
+            - first delete the heather  - the problem is still there
+            - delete the domain prices (ul) -  the problem is still there
+        
+        Go to responsive mode in the web page and drag the size
+        Check that at the breakpoint of about 400px the white box starts travelling outside the button
+        This White box is the container for an input and a button
+        We cant see the input field because is has no border so temporarly lets set the border to "5px solid red", make this changes in chrome devtools
+        .input-group .input {
+            border: 5px solid red;
+            flex-grow: 1;
+            padding: 1.5rem 2rem;
+            }
+
+        Also apply a border to the .input-group "5px solid black"
+        .block-domain .input-group {
+            box-shadow: 0 0 30px 20px #e6ebee;
+            border: 5px solid black;
+            margin: 4rem auto;
+            max-width: 670px;
+            }
+
+        Our input box with the red border has grown larger than its parent!
+
+        Now delete the button and see if we still have the problem - the problem is still there
+
+        Something is going on either with the input group or the input field
+
+        In the elements inspector select the div element and inspect its width:
+            The width of the input group is smaller that the width of the input field, thats why its has grown larger tahn its container.
+        
+        Where is the width coming from?
+            Go the computed tab. Down the botton we have the width property. Its grey because we havent explicity set this property
+            So this is automaticaly assigned by Chrome/the browser
+
+        Check the styles we applyed for this element:
+                .input-group .input {
+                    border: 5px solid red;
+                    flex-grow: 1;
+                    padding: 1.5rem 2rem;
+                    }
+            
+            If we have an input inside an input group we have set the flex grow to 1. The input field will grow and take all the available space and 
+            this would push the button to the right. This is not the cause of the problem because if we disable this property we still have the problem,
+            because Chrome has assigned a default width to the input field.... we dont want that.
+
+            So, if we have and input inside an input group we need to set its width to zero and let the flex-grow propety take care of growing the input field!
+            Then the input field will grow and take up all the available space
+
+                    .input-group .input {
+                        border: 5px solid red;
+                        flex-grow: 1;
+                        padding: 1.5rem 2rem;
+                        width: 0;
+                        }
+
+            make this change in styles.css and solve the problem!
+
+*******************************
+
+            Problem in to much padding in the button and, as a result, we dont have enough space to type in the input field.
+                        
+            lets inspect the button element in chrone dev tools:
+
+            .btn {
+                border-radius: 40px;
+                border: 0px;
+                cursor: pointer;
+                font-size: 1.8rem;
+                font-weight: 600;
+                margin: 1rem 0px;
+                outline: 0px;
+                padding: 2rem 3rem;   <--------- insted of using rem unit for horizontal padding or horizontal margin, we can use a percentage of the viewport width (set it to 4vw - 4% of the width of the viewport)
+                text-transform: uppercase;
+                white-space: nowrap;
+                text-align: center;
+            }
+
+*******************************
+
+            Problem in the layout of domain prices (less than 364px wide screen)
+                The items get squashed.
+
+                .block-domain__prices {
+                    display: grid;
+                    grid-template-columns: repeat(3, 1fr); <---- We are using a 3 column grid (mobile version). Change to 2 columns in styles.css (line 905)
+                    grid-template-rows: repeat(2, 6rem);
+                    font-size: 2rem;
+                    font-weight: 600;
+                    justify-items: center;
+                    max-width: 700px;
+                    margin: 0 auto;
+                }
+
+*******************************
+
+            Problem with the color of the labels.
+
+                .block-domain__prices {
+                    color: var(--color-headings);   <------ apply color property on this rule, not on .list class
+                    display: grid;
+                    grid-template-columns: repeat(2, 1fr); 
+                    grid-template-rows: repeat(2, 6rem);
+                    font-size: 2rem;
+                    font-weight: 600;
+                    justify-items: center;
+                    max-width: 700px;
+                    margin: 0 auto;
+                }
+
+            ALWAYS TEST ON VARIOUS SCREEN SIZES!!!
+
+
+    -->
+    <section class="block container block-domain">
+      <header class="block__header">
+        <h2>Starting at $9 per month</h2>
+        <p>
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aspernatur,
+          impedit?
+        </p>
+      </header>
+      <div class="input-group">
+        <input
+          type="text"
+          class="input"
+          placeholder="Enter domain name here..."
+        />
+        <button class="btn btn--accent">
+          <svg class="icon icon--white">
+            <use xlink:href="icons/sprite.svg#search"></use>
+          </svg>
+          Search
+        </button>
+      </div>
+      <ul class="list block-domain__prices">
+        <li><span class="badge badge--secondary">.com $9</span></li>
+        <li>.sg $10</li>
+        <li>.space $11</li>
+        <li>.info $14</li>
+        <li>.net $10</li>
+        <li>.xyz $10</li>
+      </ul>
+    </section>
+  </body>
+</html>
