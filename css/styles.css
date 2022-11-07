@@ -987,3 +987,98 @@ so we can swap the order from right to left on desktop viewing. We are selecting
     max-width: 700px;
   }
 }
+
+/*--------34 - FOOTER----------------------*/
+
+/*because the background in .block--dark is black we need in the footer instead a dark grey
+so we set another class just for the footer background color*/
+.footer {
+  background: #232323;
+}
+
+/*define a color for all links in a footer*/
+.footer a {
+  color: #777;
+  transition: 0.3s;
+}
+
+.footer a:hover {
+  color: #fff;
+}
+
+.footer__section {
+  padding: 2rem;
+  border-bottom: 1px solid #393939;
+}
+
+/*remove the space between the list of links and the heading*/
+.footer__section .list {
+  margin: 0;
+}
+
+.footer__heading {
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.footer__brand {
+  margin-top: 5rem;
+  text-align: center;
+}
+
+/*making the icon image responsive*/
+.footer__brand img {
+  /*TODO: Consider refactoring this and applying it to all images*/
+  width: 100%;
+  max-width: 230px; /*set the size of the image*/
+}
+
+.footer__copyright {
+  font-size: 2.1rem;
+  color: #fff;
+  opacity: 0.3;
+}
+
+/*adjust the footer block for the tablets and desktop version*/
+
+/* - no collapsibles (on a media query hide the chevron and show the content area)
+   - the placement of the logo is on the first column 
+*/
+
+@media screen and (min-width: 768px) {
+  /*here were going to redefine the template of our grid*/
+
+  .footer__sections {
+    grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  }
+
+  /*if in our footer we have a collapsible__chevron it should be hidden*/
+  .footer .collapsible__chevron {
+    display: none;
+  }
+
+  /*if in our footer we have a collapsible__content it should be visible*/
+  .footer .collapsible__content {
+    /* border-bottom: none;  we cant set to block because earlier we use a different tecjnique for animating the expansion of this object*/
+    opacity: 1;
+    max-height: 100%;
+  }
+
+  /*change the order of this element and place it before the first item of the grid*/
+  .footer__brand {
+    order: -1; /*by default the order of this elements is 0*/
+    margin-top: 1rem; /*takes excess margin and brings this up*/
+  }
+
+  .footer__copyright {
+    font-size: 1.5rem;
+  }
+
+  .footer__section {
+    border: 0;
+  }
+
+  .footer__heading {
+    font-size: 1.6rem;
+  }
+}
