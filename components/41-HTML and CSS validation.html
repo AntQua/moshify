@@ -1,3 +1,20 @@
+<!-- Validate our markup and make sure its valid and follows the rules that all browsers expect 
+
+https://validator.w3.org/
+
+validade by direct input, paste our html markup
+
+
+Validate also the CSS code
+
+https://jigsaw.w3.org/css-validator/
+
+validate by direct input, paste our CSS code
+
+
+
+-->
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -417,6 +434,8 @@
     <footer class="block block--dark footer">
       <div class="container grid footer__sections">
         <section class="collapsible collapsible--expanded footer__section">
+          <!-- Error: The element header must not appear as a descendant of the footer element. -->
+          <!-- Replace the header element by a div element. Select header + F2, input div -->
           <div class="collapsible__header">
             <h2 class="collapsible__heading footer__heading">PRODUCTS</h2>
             <svg class="icon icon--white collapsible__chevron">
@@ -487,7 +506,9 @@
             </ul>
           </div>
         </section>
-
+        <!-- Warning: Section lacks heading. Consider using h2-h6 elements to add identifying headings
+             to all sections, or else use a div element instead for any cases where no heading is needed. -->
+        <!-- Replace the section element by a div element. Select section + F2, input div -->
         <div class="footer__brand">
           <img src="icons/logo.svg" alt="" />
           <p class="footer__copyright">Copyright 2022 Mosh</p>
