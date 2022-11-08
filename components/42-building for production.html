@@ -1,0 +1,57 @@
+<!-- Building for production 
+
+Before we deploy our website we meed to prepare ir for production. We use a built tool.
+
+Using a built tool we can:
+                            - Combine CSS and JS files - can reduce the number of HTTP requests sent from the browser to the server.
+
+                            - Minify Js / CSS files - We can remove all the extra spaces, comments and unnecessary characters. We can reduce the size of
+                                                        our assets and deliver smaller files to the user.
+
+                            - Optimize images 
+
+What tools should we use?
+
+    - Webpack - requires alot of configuration. Not good for begginers
+
+    - Rollup 
+
+    - Parcel - Good for begginers who dont want to do alot of configuration!
+
+How to use Parcel?
+
+    - First install node.js
+
+    - open terminal (ctl+ç)
+
+    - node -v - to check of node is installed properly
+
+    - clear window ctl+l
+
+    - NPM - node package manager - with this tool we can install third party libraries (also called third party dependencies)
+
+    - first initialize an NPM pachage in this directory:  npm init -y
+
+    - now we have a new file called package.json. In this file we have information about our project
+
+    - install Parcel: npm i -D parcel-bundler
+
+    - New folder node_modules - wen we install a new library using NMP it ends getting stored in this folder. One of the folders inside is Parcel (parcel-bundler)
+
+    - We dont need all this files in our repository so we need to create a special file .gitignore
+
+    - in this file we can list the files or folders that we want to ignore: write .... node_modules/)
+
+    - Install Parcel globally so we can call it from any folder on this machine. Run on terminal :
+                        prefix with "sudo" if on mac or linux +  nmp i -g parcel-bundler
+
+    - on terminal run: parcel index.html
+
+    - parcel comes with his own developments server whos running on a localhost
+
+    - it will generate two new folders and need to be addet to .gitignore file: dist/ , .cache/
+
+    - Building for production, run: parcel build index.html (generates error. Remove the xlink: prefix from html markup in index.html) )
+
+    - creates a Dist folder. has the minified html and css files
+
